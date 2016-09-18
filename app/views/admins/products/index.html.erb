@@ -1,0 +1,15 @@
+<%= link_to 'Add new products', new_admins_product_path %>
+<table>
+	<thead>
+		<th>名稱</th>
+		<th>公開 / 隱藏</th>
+	</thead>
+	<tbody>
+		<% @products.each do |p| %>
+			<tr>
+				<td><%= link_to p.name, edit_admins_product_path(p) %></td>
+				<td><%= p.public %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

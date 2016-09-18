@@ -1,0 +1,26 @@
+<div class="varient-builder-item">
+	<div class="varient-builder-item-name">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="varient-builder-item-stock">
+		<%= f.label :stock %>
+		<%= f.number_field :stock %>
+	</div>
+	<div class="varient-builder-item-unit-name">
+		<%= f.label :unit_name %>
+		<%= f.text_field :unit_name %>
+	</div>
+	<div class="varient-builder-item-price">
+		<%= f.label :price %>
+		<%= f.number_field :price %>
+	</div>
+	<div class="varient-builder-item-public">
+		<%= f.label :public %>
+		<%= f.check_box :public %>
+	</div>
+	<div class="varient-builder-item-remove">
+		<%= link_to 'remove', '#', class: 'remove-varient-builder-item' %>
+		<%= f.hidden_field :_destroy %>
+	</div>
+</div>
