@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918090825) do
+ActiveRecord::Schema.define(version: 20160918091630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "varient_id"
+    t.integer  "order_id"
+    t.decimal  "price"
+    t.integer  "quantity"
+    t.string   "product_name"
+    t.string   "varient_name"
+    t.string   "unit_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["order_id"], name: "index_line_items_on_order_id", using: :btree
+    t.index ["varient_id"], name: "index_line_items_on_varient_id", using: :btree
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
