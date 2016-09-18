@@ -1,0 +1,24 @@
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>狀態</th>
+			<th>訂單資訊</th>
+			<th>總額</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @bills.each do |bill| %>
+			<tr>
+				<td><%= link_to bill.id, bill_path(bill) %></td>
+				<td><%= bill.state %></td>
+				<td>
+					<p><%= bill.bill_name %></p>
+					<p><%= bill.bill_address %></p>
+					<p><%= bill.bill_phone %></p>
+				</td>
+				<td><%= bill.total %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

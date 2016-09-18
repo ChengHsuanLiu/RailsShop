@@ -1,13 +1,11 @@
 class CreateOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :orders do |t|
+      t.integer :bill_id
       t.integer :user_id
       t.integer :shop_id
       t.decimal :total
-      t.decimal :fee
-      t.decimal :payment_total
       t.string :state
-      t.string :payment_type
       t.datetime :paid_at
       t.datetime :deadline
       t.string :bill_name
@@ -23,6 +21,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.timestamps
     end
     add_index :orders, :user_id
+    add_index :orders, :bill_id
     add_index :orders, :shop_id
   end
 end

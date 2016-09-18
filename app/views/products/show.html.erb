@@ -1,0 +1,6 @@
+<%= form_for @cart_item do |f| %>
+	<h4><%= @product.name %></h4>
+	<%= f.collection_select :varient_id, @product.varients, :id, :name  %>
+	<%= f.number_field :quantity %>
+	<%= f.submit %>
+<% end %>

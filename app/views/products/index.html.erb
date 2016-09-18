@@ -1,0 +1,6 @@
+<% @products.each do |p| %>
+	<div>
+		<h4><%= p.name %></h4>
+		<p><%= link_to '查看', product_path(p) %></p>
+	</div>
+<% end %>

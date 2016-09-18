@@ -1,0 +1,23 @@
+<table>
+	<thead>
+		<tr>
+			<th>商品名稱</th>
+			<th>規格</th>
+			<th>單價</th>
+			<th>數量</th>
+			<th>小計</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cart_items.each do |item| %>
+			<tr>
+				<td><%= item.varient.product.name %></td>
+				<td><%= item.varient.name %></td>
+				<td><%= item.price %></td>
+				<td><%= item.quantity %></td>
+				<td><%= item.price * item.quantity %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<p><%= link_to '結帳', new_bill_path %></p>

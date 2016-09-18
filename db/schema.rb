@@ -10,17 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918092500) do
+ActiveRecord::Schema.define(version: 20160918094103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bills", force: :cascade do |t|
+    t.decimal  "total"
+    t.decimal  "payment_total"
+    t.decimal  "fee"
+    t.string   "payment_type"
+    t.integer  "user_id"
+    t.string   "state"
+    t.datetime "paid_at"
+    t.datetime "deadline"
+    t.string   "bill_name"
+    t.string   "bill_address"
+    t.string   "bill_phone"
+    t.string   "bill_no"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_bills_on_user_id", using: :btree
+  end
+
   create_table "cart_items", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "quantity"
+    t.integer  "quantity"
     t.integer  "varient_id"
     t.decimal  "price"
     t.string   "unit_name"
+    t.integer  "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cart_items_on_user_id", using: :btree
@@ -42,13 +61,11 @@ ActiveRecord::Schema.define(version: 20160918092500) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer  "bill_id"
     t.integer  "user_id"
     t.integer  "shop_id"
     t.decimal  "total"
-    t.decimal  "fee"
-    t.decimal  "payment_total"
     t.string   "state"
-    t.string   "payment_type"
     t.datetime "paid_at"
     t.datetime "deadline"
     t.string   "bill_name"
@@ -62,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160918092500) do
     t.string   "order_no"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["bill_id"], name: "index_orders_on_bill_id", using: :btree
     t.index ["shop_id"], name: "index_orders_on_shop_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end

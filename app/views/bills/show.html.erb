@@ -1,0 +1,29 @@
+<% @bill.orders.each do |o| %>
+<p>商店名稱： <%= o.shop.name %></p>
+<p>訂單 ID: <%= o.id %></p>
+<p>總金額: <%= o.total %></p>
+
+<p>明細</p>
+<table>
+	<thead>
+		<tr>
+			<th>名稱</th>
+			<th>規格</th>
+			<th>金額</th>
+			<th>數量</th>
+			<th>小計</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% o.line_items.each do |item| %>
+			<tr>
+				<td><%= item.product_name %></td>
+				<td><%= item.varient_name %></td>
+				<td><%= item.price %></td>
+				<td><%= item.quantity %><%= item.unit_name %></td>
+				<td><%= item.price * item.quantity %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>
