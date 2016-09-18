@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  shop_id: 1
+  total: 9.99
+  fee: 9.99
+  payment_total: 9.99
+  state: MyString
+  payment_type: MyString
+  paid_at: 2016-09-18 17:23:30
+  deadline: 2016-09-18 17:23:30
+  bill_name: MyString
+  bill_address: MyString
+  bill_phone: MyString
+  shipping_name: MyString
+  shipping_address: MyString
+  shipping_phone: MyString
+  company_name: MyString
+  company_registration_number: MyString
+  order_no: MyString
+
+two:
+  user_id: 1
+  shop_id: 1
+  total: 9.99
+  fee: 9.99
+  payment_total: 9.99
+  state: MyString
+  payment_type: MyString
+  paid_at: 2016-09-18 17:23:30
+  deadline: 2016-09-18 17:23:30
+  bill_name: MyString
+  bill_address: MyString
+  bill_phone: MyString
+  shipping_name: MyString
+  shipping_address: MyString
+  shipping_phone: MyString
+  company_name: MyString
+  company_registration_number: MyString
+  order_no: MyString
