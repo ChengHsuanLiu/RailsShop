@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918092330) do
+ActiveRecord::Schema.define(version: 20160918092500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "quantity"
+    t.integer  "varient_id"
+    t.decimal  "price"
+    t.string   "unit_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cart_items_on_user_id", using: :btree
+    t.index ["varient_id"], name: "index_cart_items_on_varient_id", using: :btree
+  end
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "varient_id"
