@@ -39,6 +39,6 @@ class Admins::ProductsController < Admins::BaseController
   private
 
   def product_params
-    params.require(:product).permit(:name, :category_id, :public, :shop_id, :deleted_at, varients_attributes: [:id, :name, :stock, :unit_name, :price, :public, :product_id, :deleted_at, :_destroy])
+    params.require(:product).permit(:name, :category_id, :public, :shop_id, :deleted_at, variants_attributes: [:id, :name, :stock, :unit_name, :price, :public, :product_id, :deleted_at, :_destroy])
   end
 end

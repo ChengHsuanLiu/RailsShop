@@ -1,9 +1,9 @@
 <%= form_for @cart_item do |f| %>
 	<h4><%= @product.name %></h4>
-	<% if @product.varients.count > 1 %>
-		<%= f.collection_select :varient_id, @product.varients, :id, :name  %>
+	<% if @product.variants.count > 1 %>
+		<%= f.collection_select :variant_id, @product.variants, :id, :name  %>
 	<% else %>
-		<%= f.hidden_field :varient_id, value: @product.varients.first.id %>
+		<%= f.hidden_field :variant_id, value: @product.variants.first.id %>
 	<% end %>
 	<%= f.number_field :quantity, value: 1, min: 1 %>
 	<%= f.submit %>

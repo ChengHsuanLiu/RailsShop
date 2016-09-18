@@ -11,8 +11,8 @@
 	<tbody>
 		<% @cart_items.each do |item| %>
 			<tr>
-				<td><%= item.varient.product.name %></td>
-				<td><%= item.varient.name %></td>
+				<td><%= item.variant.product.name %></td>
+				<td><%= item.variant.name %></td>
 				<td><%= item.price %></td>
 				<td><%= item.quantity %></td>
 				<td><%= item.price * item.quantity %></td>

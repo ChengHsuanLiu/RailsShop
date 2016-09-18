@@ -25,7 +25,7 @@
 		<% @order.line_items.each do |item| %>
 			<tr>
 				<td><%= item.product_name %></td>
-				<td><%= item.varient_name %></td>
+				<td><%= item.variant_name %></td>
 				<td><%= item.price %></td>
 				<td><%= item.quantity %><%= item.unit_name %></td>
 				<td><%= item.price * item.quantity %></td>

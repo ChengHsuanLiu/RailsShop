@@ -3,13 +3,13 @@
 one:
   user_id: 1
   quantity: MyString
-  varient_id: 1
+  variant_id: 1
   price: 9.99
   unit_name: MyString
 
 two:
   user_id: 1
   quantity: MyString
-  varient_id: 1
+  variant_id: 1
   price: 9.99
   unit_name: MyString

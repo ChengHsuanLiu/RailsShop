@@ -1,6 +1,6 @@
-class CreateVarients < ActiveRecord::Migration[5.0]
+class CreateVariants < ActiveRecord::Migration[5.0]
   def change
-    create_table :varients do |t|
+    create_table :variants do |t|
       t.string :name
       t.integer :stock
       t.string :unit_name
@@ -11,6 +11,6 @@ class CreateVarients < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :varients, :product_id
+    add_index :variants, :product_id
   end
 end

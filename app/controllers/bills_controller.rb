@@ -16,7 +16,7 @@ class BillsController < ApplicationController
   end
 
   def new
-    @cart_items = current_user.cart_items.includes(:varient)
+    @cart_items = current_user.cart_items.includes(:variant)
     @bill = current_user.bills.new
   end
 
@@ -45,11 +45,11 @@ class BillsController < ApplicationController
           total = 0
           @cart_items.where(shop_id: shop_id).each do |item|
             @order.line_items.new({
-              varient_id: item.varient_id,
+              variant_id: item.variant_id,
               price: item.price,
               quantity: item.quantity,
-              product_name: item.varient.product.name,
-              varient_name: item.varient.name,
+              product_name: item.variant.product.name,
+              variant_name: item.variant.name,
               unit_name: item.unit_name,
              })
             total += (item.price * item.quantity)

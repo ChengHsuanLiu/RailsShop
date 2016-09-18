@@ -9,12 +9,12 @@
     <%= f.number_field :category_id %>
   </div>
 
-  <h5>Varients</h5>
-  <div class="varients-container" id="varients-container">
-    <%= f.fields_for :varients do |varient_builder| %>
-      <%= render 'varient_fields', f: varient_builder %>
+  <h5>Variants</h5>
+  <div class="variants-container" id="variants-container">
+    <%= f.fields_for :variants do |variant_builder| %>
+      <%= render 'variant_fields', f: variant_builder %>
     <% end %>
-    <%= link_to_add_fields 'Add varient', f, :varients, 'add-varient-builder-btn btn' %>
+    <%= link_to_add_fields 'Add variant', f, :variants, 'add-variant-builder-btn btn' %>
   </div>
 
   <div class="field">
@@ -22,16 +22,16 @@
   </div>
 <% end %>
 <script type="text/javascript">
-  $(document).on('click', '.add-varient-builder-btn', function(){
+  $(document).on('click', '.add-variant-builder-btn', function(){
     time = new Date().getTime();
     regexp = new RegExp($(this).data('id'), 'g');
-    $(this).parent('.varients-container').before($(this).data('fields'));
+    $(this).parent('.variants-container').before($(this).data('fields'));
     event.preventDefault();
   })
 
-  $(document).on('click', '.remove-varient-builder-item', function(event){
+  $(document).on('click', '.remove-variant-builder-item', function(event){
     $(this).siblings('input').val('1');
-    $(this).closest('.varient-builder-item').hide();
+    $(this).closest('.variant-builder-item').hide();
     event.preventDefault();
   })
 </script>

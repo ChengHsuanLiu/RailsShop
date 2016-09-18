@@ -61,28 +61,28 @@ ActiveRecord::Schema.define(version: 20160918114251) do
   create_table "cart_items", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "quantity"
-    t.integer  "varient_id"
+    t.integer  "variant_id"
     t.decimal  "price"
     t.string   "unit_name"
     t.integer  "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cart_items_on_user_id", using: :btree
-    t.index ["varient_id"], name: "index_cart_items_on_varient_id", using: :btree
+    t.index ["variant_id"], name: "index_cart_items_on_variant_id", using: :btree
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer  "varient_id"
+    t.integer  "variant_id"
     t.integer  "order_id"
     t.decimal  "price"
     t.integer  "quantity"
     t.string   "product_name"
-    t.string   "varient_name"
+    t.string   "variant_name"
     t.string   "unit_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["order_id"], name: "index_line_items_on_order_id", using: :btree
-    t.index ["varient_id"], name: "index_line_items_on_varient_id", using: :btree
+    t.index ["variant_id"], name: "index_line_items_on_variant_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20160918114251) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "varients", force: :cascade do |t|
+  create_table "variants", force: :cascade do |t|
     t.string   "name"
     t.integer  "stock"
     t.string   "unit_name"
@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(version: 20160918114251) do
     t.boolean  "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_varients_on_product_id", using: :btree
+    t.index ["product_id"], name: "index_variants_on_product_id", using: :btree
   end
 
 end
